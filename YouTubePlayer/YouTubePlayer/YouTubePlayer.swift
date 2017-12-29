@@ -167,31 +167,31 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     // MARK: Player controls
     
     open func mute() {
-        evaluatePlayerCommand("mute()")
+        let _ = evaluatePlayerCommand("mute()")
     }
     
     open func unMute() {
-        evaluatePlayerCommand("unMute()")
+        let _ = evaluatePlayerCommand("unMute()")
     }
     
     open func play() {
-        evaluatePlayerCommand("playVideo()")
+        let _ = evaluatePlayerCommand("playVideo()")
     }
     
     open func pause() {
-        evaluatePlayerCommand("pauseVideo()")
+        let _ = evaluatePlayerCommand("pauseVideo()")
     }
     
     open func stop() {
-        evaluatePlayerCommand("stopVideo()")
+        let _ = evaluatePlayerCommand("stopVideo()")
     }
     
     open func clear() {
-        evaluatePlayerCommand("clearVideo()")
+        let _ = evaluatePlayerCommand("clearVideo()")
     }
     
     open func seekTo(_ seconds: Float, seekAhead: Bool) {
-        evaluatePlayerCommand("seekTo(\(seconds), \(seekAhead))")
+        let _ = evaluatePlayerCommand("seekTo(\(seconds), \(seekAhead))")
     }
     
     open func getDuration() -> String? {
@@ -205,11 +205,11 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
     // MARK: Playlist controls
     
     open func previousVideo() {
-        evaluatePlayerCommand("previousVideo()")
+        let _ = evaluatePlayerCommand("previousVideo()")
     }
     
     open func nextVideo() {
-        evaluatePlayerCommand("nextVideo()")
+        let _ = evaluatePlayerCommand("nextVideo()")
     }
     
     @discardableResult fileprivate func evaluatePlayerCommand(_ command: String) -> String? {
@@ -286,7 +286,7 @@ open class YouTubePlayerView: UIView, UIWebViewDelegate {
             let jsonData = try JSONSerialization.data(withJSONObject: object, options: JSONSerialization.WritingOptions.prettyPrinted)
             
             // Succeeded
-            return NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) as String?
+            return String(data: jsonData, encoding: .utf8)
             
         } catch let jsonError {
             
